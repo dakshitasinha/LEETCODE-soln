@@ -3,8 +3,7 @@ class Solution {
         int count=0;
         
         for(int i=0; i<word.length(); i++){
-            int x=i/8;
-            count+=(x+1);
+            count+=((i/8)+1);
         }
         return count;
 
