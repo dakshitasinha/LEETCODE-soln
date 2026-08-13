@@ -1,34 +1,21 @@
 class Solution {
     public int maxArea(int[] height) {
+        int left=0, right=height.length-1;
+        int maxArea=0;
 
-        // Start with widest possible container
-        int left = 0;
-        int right = height.length - 1;
-
-        int maxArea = 0;
-
-        while (left < right) {
-
-            // Distance between lines
-            int width = right - left;
-
-            // Water level is limited by shorter line
+        while(left<right){
+            int width = right-left;
             int h = Math.min(height[left], height[right]);
 
-            // Calculate current area
-            int area = width * h;
+            int area=width*h;
+            maxArea= Math.max(maxArea, area);
 
-            // Update maximum area found so far
-            maxArea = Math.max(maxArea, area);
-
-            // Move the smaller height
-            if (height[left] < height[right]) {
+            if(height[left]<height[right]){
                 left++;
-            } else {
+            } else{
                 right--;
             }
         }
-
         return maxArea;
     }
 }
