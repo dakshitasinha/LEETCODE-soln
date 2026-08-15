@@ -6,7 +6,6 @@ class Solution {
 
         for (int x : nums) {
             xor ^= x;
-
             if (x != 0) {
                 nonZero++;
             }
