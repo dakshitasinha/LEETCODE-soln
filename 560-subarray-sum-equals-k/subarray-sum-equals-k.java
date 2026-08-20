@@ -8,7 +8,7 @@ class Solution {
             prefix+=num;
 
             if(map.containsKey(prefix-k)){
-                count+=map.get(prefix-k);
+                count+= map.get(prefix-k);
             }
             map.put(prefix, map.getOrDefault(prefix,0)+1);
         }
