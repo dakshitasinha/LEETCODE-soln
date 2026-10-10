@@ -1,20 +1,23 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> ans = new ArrayList<>();
-        backtrack(ans, "", 0, 0, n);
-        return ans;
+        ArrayList<String> res = new ArrayList<>();
+
+        getParanthesis(0,0,"",n,res);
+        return res;
     }
-
-    void backtrack(List<String> ans, String s, int open, int close, int n) {
-        if (s.length() == 2 * n) {
-            ans.add(s);
-            return;
+    static void getParanthesis(int open,int close,String s,int n,ArrayList<String> res)
+    {
+        if(s.length() == 2*n)
+        {
+            res.add(s);
         }
-
-        if (open < n)
-            backtrack(ans, s + "(", open + 1, close, n);
-
-        if (close < open)
-            backtrack(ans, s + ")", open, close + 1, n);
+        if(open < n)
+        {
+            getParanthesis(open+1,close,s+"(",n,res);
+        }
+        if(close < open)
+        {
+            getParanthesis(open,close+1,s+")",n,res);
+        }
     }
 }
