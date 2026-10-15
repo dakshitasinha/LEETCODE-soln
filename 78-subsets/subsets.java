@@ -2,20 +2,20 @@ import java.util.*;
 
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        ans.add(new ArrayList<>());
 
-        int total = 1<<nums.length;
+        for (int num : nums) {
+            int size = ans.size();
 
-        for(int mask=0; mask<total; mask++){
-            List<Integer> subset = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                List<Integer> temp =new ArrayList<>(ans.get(i));
 
-            for(int i=0; i<nums.length; i++){
-                if((mask & (1<<i)) != 0){
-                    subset.add(nums[i]);
-                }
+                temp.add(num);
+                ans.add(temp);
             }
-            result.add(subset);
         }
-        return result;
+
+        return ans;
     }
 }
