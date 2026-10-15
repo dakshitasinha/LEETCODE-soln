@@ -1,12 +1,6 @@
 class Solution {
-    public int findCenter(int[][] edges) {
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                if (edges[0][i] == edges[1][j]) {
-                    return edges[0][i];
-                }
-            }
-        }
-        return -1;
+    public int findCenter(int[][] e) {
+        if(e[0][0]==e[1][0] || e[0][0]==e[1][1]) return e[0][0];
+        return e[0][1];
     }
 }
