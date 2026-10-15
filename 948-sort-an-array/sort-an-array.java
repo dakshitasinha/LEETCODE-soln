@@ -6,8 +6,8 @@ class Solution {
 
     void mergeSort(int[] a, int l, int r){
         if(l>=r) return;
-
         int m = l+(r-l)/2;
+
         mergeSort(a, l, m);
         mergeSort(a, m+1, r);
 
@@ -15,8 +15,8 @@ class Solution {
         int i=l, j=m+1, k=0;
 
         while(i<=m && j<=r){
-            if(a[i]<=a[j]) temp[k++] = a[i++];
-            else temp[k++] = a[j++];
+            if (a[i]<=a[j]) temp[k++]=a[i++];
+            else temp[k++]=a[j++];
         }
         while(i<=m) temp[k++]=a[i++];
         while(j<=r) temp[k++]=a[j++];
@@ -25,5 +25,4 @@ class Solution {
             a[l+x] = temp[x];
         }
     }
-
 }
